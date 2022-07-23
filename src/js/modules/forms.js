@@ -2,7 +2,7 @@ export default class Forms {
   constructor(selectors = 'form', container = null) {
     this.forms = document.querySelectorAll(selectors);
     this.inputs = document.querySelectorAll('input');
-    this.task = {one: {id: 0.32432, value: 'yes'}};
+    this.task = {};
     this.container = document.querySelector(container);
   }
 
@@ -31,7 +31,8 @@ export default class Forms {
     };
 
     this.task[newTask.id] = newTask;
-    
+    localStorage.setItem(id, value);
+
     return { ...newTask };
   }
   taskRemove() {
@@ -42,16 +43,16 @@ export default class Forms {
         const taskID = target.closest('.task-item').dataset.id;
         const el = target.closest('.task-item');
 
+        el.classList.remove('show');
         el.classList.add('hide');
         setTimeout(() => el.remove(), 900);
         delete this.task[taskID];
-
-        // this.cheackTasks();
+        localStorage.removeItem(taskID);
+        setTimeout(() => this.cheackTasks(), 900);
       }
-      
     });
   }
-  taskTemplate({ id, value }, index, check = false) {
+  taskTemplate({ id = null, value = null }, index, check = false) {
     if (!check) {
       return `
         <div class="task-item" data-id="${id}">
@@ -65,7 +66,7 @@ export default class Forms {
     } else {
       return `
         <div class="task-item show" data-id="${id}">
-          <div class="task-item__num">${index}</div>
+          <div class="task-item__num">${index + 1}</div>
           <p class="task-item__text">${value}</p>
           <div class="task-item__btn">
             <button class="btn btn-remove"></button>
@@ -75,19 +76,30 @@ export default class Forms {
     }
   }
   cheackTasks() {
-    // this.container.innerHTML = '';
-    // this.task.forEach((task, index) => {
-    //   let item = this.taskTemplate(task, index, true);
-    //   this.container.insertAdjacentHTML('beforeend', item);
-    // });
+    this.container.innerHTML = '';
+    const verifiedList = Object.values(this.task);
+    verifiedList.forEach((item, index) => {
+      const template = this.taskTemplate(item, index, true);
+      this.container.insertAdjacentHTML('beforeend', template);
+    });
   }
-  localStor(){
-
+  chackLocalStorage(){
+    const storage = Object.entries(localStorage);
+    storage.forEach(element => {
+      const newTask = {
+        id: element[0],
+        value: element[1]
+      };
+      this.task[newTask.id] = newTask;
+    });
+    this.cheackTasks();
   }
 
   init() {
+    this.chackLocalStorage();
     this.handlerTasks();
     this.taskRemove();
+    
   }
 }
 

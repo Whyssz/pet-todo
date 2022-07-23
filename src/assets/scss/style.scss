@@ -24,6 +24,7 @@ body{
   padding: 50px;
 }
 .todo-box{
+  transition: all .3s ease-out;
   overflow: hidden;
   background-color: #fff;
   max-width: 650px;
