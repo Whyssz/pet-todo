@@ -1,11 +1,11 @@
+import Forms from './modules/forms.js';
 
-window.addEventListener('DOMContentLoaded',() => {
+window.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
 
-  
-  console.log('test is success');
-  // flsFunctions.isWeb();
+  new Forms('form', '.todo-box__container').init();
+
 });
 
 

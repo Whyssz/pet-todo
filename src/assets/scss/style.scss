@@ -24,6 +24,7 @@ body{
   padding: 50px;
 }
 .todo-box{
+  overflow: hidden;
   background-color: #fff;
   max-width: 650px;
   width: 100%;
@@ -79,6 +80,7 @@ body{
   height: 35px;
   background-color: $bg;
   border-radius: 0px 5px 5px 0px; 
+  cursor: pointer;
   &::after{
     content: url('@img/icons/plus.svg');
     width: 25px;
@@ -99,6 +101,7 @@ body{
 .task-item{
   background-color: #DBE2EF;
   height: auto;
+  max-width: 500px;
   width: 100%;
   margin-bottom: 30px;
   align-items: center;
@@ -113,6 +116,8 @@ body{
   font-size: 20px;
 }
 .task-item__btn{
+  position: absolute;
+  right: 0;
   width: 60px;
   text-align: center;
   button{
@@ -140,7 +145,8 @@ body{
 .task-item__text{
   text-align: left;
   width: 100%;
-  padding: 0 10px;
+  padding: 0 60px 0 10px;
+  overflow-wrap: break-word;
 }
 
 .hide{
@@ -156,6 +162,20 @@ body{
     opacity: 0;
   }
 }
+.show{
+  animation: fadeIn 1s;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-200px);
+  }
+  to {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
 //rule img/icon only - ../img (@img)
 // div{
 //   &:after{ <-- 
