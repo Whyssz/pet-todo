@@ -2,15 +2,12 @@ html{
   box-sizing: border-box;
 }
 *,*::after,*::before{
-  width: 0;
-  height: 0;
   box-sizing: inherit;
   scroll-behavior: smooth;
 }
 html,
 body {
   height: 100%;
-  position: relative;
   margin: 0;
   padding: 0;
 }

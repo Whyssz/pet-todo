@@ -1,0 +1,281 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+ul, li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  overflow-x: hidden;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #000;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex: 0 0 auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.container-fluid {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+@font-face {
+  font-family: Inter;
+  font-display: swap;
+  src: url("../fonts/Inter-Regular.woff2") format("woff2"), url("../fonts/Inter-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: InterBold;
+  font-display: swap;
+  src: url("../fonts/Inter-Bold.woff2") format("woff2"), url("../fonts/Inter-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "icomoon";
+  src: url("../icomoons/icomoon.eot?r5400l");
+  src: url("../icomoons/icomoon.eot?r5400l#iefix") format("embedded-opentype"), url("../icomoons/icomoon.ttf?r5400l") format("truetype"), url("../icomoons/icomoon.woff?r5400l") format("woff"), url("../icomoons/icomoon.svg?r5400l#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+[class^=icon-], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #00E995;
+  font-family: "Inter";
+  height: 100vh;
+}
+
+.btn {
+  width: 25px;
+  height: 25px;
+  border: 1px solid #7b7b7b;
+  border-radius: 5px;
+}
+
+.todo {
+  padding: 50px 0;
+}
+
+.todo-inner {
+  padding: 50px;
+}
+
+.todo-box {
+  background-color: #fff;
+  max-width: 650px;
+  width: 100%;
+  min-height: 450px;
+  position: absolute;
+  left: 50%;
+  top: 200px;
+  transform: translate(-50%, -100px);
+  text-align: center;
+  padding: 50px;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+
+.todo-box__header {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #00E995;
+}
+
+.todo-box__title {
+  color: #3F72AF;
+  font-family: "InterBold";
+  font-size: 40px;
+  line-height: 46px;
+  margin-bottom: 15px;
+}
+
+.todo-form {
+  max-width: 300px;
+  width: 100%;
+  margin: 0 auto;
+  height: 35px;
+  position: relative;
+}
+
+.input-task {
+  width: 100%;
+  height: 35px;
+  padding: 5px 45px 5px 10px;
+  background: #DBE2EF;
+  border: 1px solid rgba(177, 177, 177, 0.4);
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  outline: none;
+  color: #112D4E;
+}
+.input-task::placeholder {
+  color: #7b7b7b;
+}
+
+.form-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45px;
+  height: 35px;
+  background-color: #3F72AF;
+  border-radius: 0px 5px 5px 0px;
+}
+.form-btn::after {
+  content: url("../img/icons/plus.svg");
+  width: 25px;
+  height: 25px;
+  top: 0;
+  left: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.todo-box__container {
+  width: 100%;
+  height: 100%;
+  max-width: 550px;
+  padding: 20px 10px;
+  margin: auto;
+}
+
+.task-item {
+  background-color: #DBE2EF;
+  height: auto;
+  width: 100%;
+  margin-bottom: 30px;
+  align-items: center;
+  display: flex;
+  padding: 10px 15px;
+  border-radius: 10px;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+.task-item__num {
+  padding: 5px;
+  font-size: 20px;
+}
+
+.task-item__btn {
+  width: 60px;
+  text-align: center;
+}
+.task-item__btn button {
+  transition: all 0.3s ease-out;
+  position: relative;
+}
+.task-item__btn button:hover {
+  cursor: pointer;
+  background-color: red;
+}
+.task-item__btn button:hover::after {
+  opacity: 1;
+}
+.task-item__btn button::after {
+  opacity: 0;
+  content: url(../img/icons/plus.svg);
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: -3px;
+  left: 1px;
+  transform: rotate(45deg);
+}
+
+.task-item__text {
+  text-align: left;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.hide {
+  animation: fadeOut 1s;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    visibility: hidden;
+    transform: translate(200px);
+    opacity: 0;
+  }
+}
+@media (max-width: 720px) {
+  .container-fluid {
+    padding: 0 15px;
+  }
+}
