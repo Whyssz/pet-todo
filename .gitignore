@@ -1,0 +1,6 @@
+.DS_store
+.AppleDouble
+.ALSOverride
+/node_modules/
+/.idea/
+/.git/

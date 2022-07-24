@@ -1,0 +1,22 @@
+$soft: #DBE2EF;
+$bg: #3F72AF;
+$text: #7b7b7b;
+$title: #112D4E;
+$succ: #00E995;
+
+@mixin bg{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@mixin lt{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+//@mixin f500{
+//  font-family: 'Roboto', sans-serif;
+//  font-weight: 500;
+//}
