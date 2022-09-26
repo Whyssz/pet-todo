@@ -1,4 +1,4 @@
-# First own project. 
+# Brief: [view](https://whyssz.github.io/pet-todo/)
 This is a simple project, even one of the most common among beginners =)
 ## Description:
 * ES6+ standards were used
